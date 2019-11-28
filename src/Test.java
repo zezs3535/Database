@@ -54,8 +54,7 @@ public class Test
 			System.out.println(" ");
 			System.out.println("------------------------------------------------------------");
 			System.out.println(" 1. customer 2. employee ");
-			System.out.println(" 3. kiosk 4. sell ");
-			System.out.println(" 5. sellproduct 6. shop ");
+			System.out.println(" 3. sell 4. sellproduct ");
 			System.out.println(" 99. quit ");
 			System.out.println("------------------------------------------------------------");
 			System.out.print("Enter an integer: ");
@@ -67,10 +66,18 @@ public class Test
 				break;
 			case 2:
 				System.out.println();
-				ShowDB();
+				ShowEmployee();
+				break;
+			case 3:
+				System.out.println();
+				ShowSell();
+				break;
+			case 4:
+				System.out.println();
+				ShowSellProduct();
 				break;
 			case 99:
-				
+				System.exit(0);
 				break;
 			}
 		}
@@ -83,6 +90,40 @@ public class Test
 			System.out.println("-------------------------고객 명단-----------------------------");
 			while(rs.next())
 				System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4));
+			con.close();
+			System.out.println("------------------------------------------------------------");
+		}catch(Exception e){ System.out.println(e);}
+	}
+	public static void ShowEmployee() {
+		try{
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery("SELECT * FROM employee");
+			System.out.println("-------------------------직원 명단-----------------------------");
+			while(rs.next())
+				System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5));
+			con.close();
+			System.out.println("------------------------------------------------------------");
+		}catch(Exception e){ System.out.println(e);}
+	}
+	public static void ShowSell() {
+		try{
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery("SELECT * FROM sell");
+			System.out.println("-------------------------판매 명단-----------------------------");
+			while(rs.next())
+				System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4)
+				+" "+rs.getInt(5)+" "+rs.getDate(6)+" "+rs.getInt(7));
+			con.close();
+			System.out.println("------------------------------------------------------------");
+		}catch(Exception e){ System.out.println(e);}
+	}
+	public static void ShowSellProduct() {
+		try{
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery("SELECT * FROM sellproduct");
+			System.out.println("-------------------------물품 명단-----------------------------");
+			while(rs.next())
+				System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getDate(3)+" "+rs.getInt(4));
 			con.close();
 			System.out.println("------------------------------------------------------------");
 		}catch(Exception e){ System.out.println(e);}
