@@ -21,7 +21,9 @@ public class Test
 			System.out.println(" 3. insertCustomer 4. deleteCustomer");
 			System.out.println(" 5. insertShop 6. deleteShop");
 			System.out.println(" 7. insertKiosk 8. deleteKiosk");
-			System.out.println(" 99. quit ");
+			System.out.println(" 9. insertSellProduct 10. deleteSellProduct");
+			System.out.println(" 11. insertEmployee 12. deleteEmployee");
+			System.out.println(" 13. sell(order) 99. quit ");
 			System.out.println("------------------------------------------------------------");
 			System.out.print("Enter an integer: ");
 			int number = menu.nextInt();
@@ -52,11 +54,31 @@ public class Test
 				break;
 			case 7:
 				System.out.println();
-				InsertKiosk();
+				InsertKiosk();			//키오스크 추가
 				break;
 			case 8:
 				System.out.println();
-				DeleteKiosk();
+				DeleteKiosk();			//키오스크 삭제
+				break;
+			case 9:
+				System.out.println();
+				InsertSellProduct();			//판매품목 추가
+				break;
+			case 10:
+				System.out.println();
+				DeleteSellProduct();			//판매품목 삭제
+				break;
+			case 11:
+				System.out.println();
+				InsertEmployee();			//직원 추가
+				break;
+			case 12:
+				System.out.println();
+				DeleteEmployee();			//직원 삭제
+				break;
+			case 13:
+				System.out.println();
+				Sell();			//판매
 				break;
 			case 99:
 				System.exit(0);
@@ -83,34 +105,34 @@ public class Test
 			System.out.println(" 1. customer 2. employee ");
 			System.out.println(" 3. sell 4. sellproduct ");
 			System.out.println(" 5. shop 6. kiosk");
-			System.out.println("99. quit");
+			System.out.println(" 99. quit");
 			System.out.println("------------------------------------------------------------");
 			System.out.print("확인 하려는 목록 입력 : ");
 			int number = menu.nextInt();
 			switch(number) {
 			case 1:
 				System.out.println();
-				ShowCustomer();
+				ShowCustomer();		//고객 명단 출력
 				break;
 			case 2:
 				System.out.println();
-				ShowEmployee();
+				ShowEmployee();		//직원 명단 출력
 				break;
 			case 3:
 				System.out.println();
-				ShowSell();
+				ShowSell();			//판매 목록 출력
 				break;
 			case 4:
 				System.out.println();
-				ShowSellProduct();
+				ShowSellProduct();	//판매 품목 출력
 				break;
 			case 5:
 				System.out.println();
-				ShowShop();
+				ShowShop();			//매장 목록 출력
 				break;	
 			case 6:
 				System.out.println();
-				ShowKiosk();
+				ShowKiosk();		//키오스크 목록 출력
 				break;
 			case 99:
 				return;
@@ -200,6 +222,99 @@ public class Test
 			System.out.println("성공적으로 삭제되었습니다!");
 		}catch(Exception e) {System.out.println(e);}
 	}
+	public static void InsertEmployee() {
+		try{
+		Statement stmt=con.createStatement();
+		Scanner menu=new Scanner(System.in);
+		System.out.println("직원의 번호는 6xxx입니다.");
+		System.out.print("직원 번호을 입력하세요 : ");
+		String empno=menu.nextLine();
+		System.out.print("직원 계급을 입력하세요 : ");
+		String position=menu.nextLine();
+		System.out.print("직원 이름을 입력하세요 : ");
+		String name=menu.nextLine();
+		System.out.print("직원 주소을 입력하세요 : ");
+		String location=menu.nextLine();
+		System.out.print("직원 전화번호를 입력하세요 : ");
+		String phonenum=menu.nextLine();
+		
+		String sql=("insert into employee values('"+empno+"','"+position+"','"+name+"','"+location+"','"+phonenum+"')");
+		stmt.executeUpdate(sql);
+		System.out.println("성공적으로 저장되었습니다!");
+		}catch(Exception e) {System.out.println(e);}
+	}
+	public static void DeleteEmployee() {
+		try {
+			Scanner menu = new Scanner(System.in);
+			System.out.print("삭제할 매장의 번호를 입력하세요 : ");
+			String shopnum = menu.nextLine();
+			Statement stmt = con.createStatement();
+			String sql=("delete from shop where shopnum="+shopnum+";");
+			stmt.executeUpdate(sql);
+			System.out.println("성공적으로 삭제되었습니다!");
+		}catch(Exception e) {System.out.println(e);}
+	}
+	public static void InsertSellProduct() {
+		try{
+		Statement stmt=con.createStatement();
+		Scanner menu=new Scanner(System.in);
+		System.out.println("판매 물품의 번호는 4xxx입니다.");
+		System.out.print("매장 번호를 입력하세요 : ");
+		String shopnum=menu.nextLine();
+		System.out.print("판매 물품 번호를 입력하세요 : ");
+		String productnum=menu.nextLine();
+		System.out.print("유통기한 입력하세요 : ");
+		String life=menu.nextLine();
+		System.out.print("가격을 입력하세요 : ");
+		String price=menu.nextLine();
+		
+		String sql=("insert into sellproduct values('"+shopnum+"','"+productnum+"','"+life+"','"+price+"')");
+		stmt.executeUpdate(sql);
+		System.out.println("성공적으로 저장되었습니다!");
+		}catch(Exception e) {System.out.println("주 테이블에 행이 없습니다.");}
+	}
+	public static void DeleteSellProduct() {
+		try {
+			Scanner menu = new Scanner(System.in);
+			System.out.print("삭제할 판매 물품의 번호를 입력하세요 : ");
+			String productnum = menu.nextLine();
+			Statement stmt = con.createStatement();
+			String sql=("delete from sellproduct where productnum="+productnum+";");
+			stmt.executeUpdate(sql);
+			System.out.println("성공적으로 삭제되었습니다!");
+		}catch(Exception e) {System.out.println(e);}
+	}
+	public static void Sell() {
+		try{
+			Statement stmt=con.createStatement();
+			Scanner menu=new Scanner(System.in);
+			System.out.println("판매 번호는 5xxx입니다.");
+			System.out.print("판매 번호를 입력하세요 : ");
+			String sellnum=menu.nextLine();
+			System.out.print("매장 번호를 입력하세요 : ");
+			String shopnum=menu.nextLine();
+			System.out.print("고객 번호를 입력하세요 : ");
+			String cusnum=menu.nextLine();
+			System.out.print("판매 물품 번호를 입력하세요 : ");
+			String productnum=menu.nextLine();
+			System.out.print("수량을 입력하세요 : ");
+			String count=menu.nextLine();
+			System.out.print("판매 날짜를 입력하세요 : ");
+			String selldate=menu.nextLine();
+			int c=Integer.parseInt(count); //count를 int형으로 변환
+			rs = stmt.executeQuery("SELECT price FROM sellproduct where productnum="+productnum+";");
+			rs.next();
+			int price=rs.getInt(1);
+			int pay=c*price;
+
+			
+			
+			
+			String sql=("insert into sell values('"+sellnum+"','"+shopnum+"','"+cusnum+"','"+productnum+"','"+count+"','"+selldate+"','"+pay+"')");
+			stmt.executeUpdate(sql);
+			System.out.println("성공적으로 저장되었습니다!");
+			}catch(Exception e) {System.out.println("주 테이블에 행이 없습니다.");}
+	}
 	public static void ShowCustomer() {
 		try{
 			Statement stmt=con.createStatement();
@@ -213,9 +328,8 @@ public class Test
 				System.out.printf("%11s    ",rs.getString(4));
 				System.out.println();
 			}
-			con.close();
 			System.out.println("------------------------------------------------------------");
-		}catch(Exception e){ System.out.println(e);}
+		}catch(Exception e){ System.out.println("데이터베이스에 연결하세요");}
 	}
 	public static void ShowEmployee() {
 		try{
@@ -223,9 +337,9 @@ public class Test
 			ResultSet rs=stmt.executeQuery("SELECT * FROM employee");
 			System.out.println("-------------------------직원 명단-----------------------------");
 			while(rs.next())
-				System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5));
+				System.out.println("[직원 번호 : "+rs.getString(1)+"] [직원 계급 : "+rs.getString(2)+"] [직원 이름 : "+rs.getString(3)+"] [직원 주소 : "+rs.getString(4)+"] [직원 전화번호 : "+rs.getString(5)+"]");
 			System.out.println("------------------------------------------------------------");
-		}catch(Exception e){ System.out.println(e);}
+		}catch(Exception e){ System.out.println("데이터베이스에 연결하세요");}
 	}
 	public static void ShowSell() {
 		try{
@@ -233,20 +347,26 @@ public class Test
 			ResultSet rs=stmt.executeQuery("SELECT * FROM sell");
 			System.out.println("-------------------------판매 명단-----------------------------");
 			while(rs.next())
-				System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4)
-				+" "+rs.getInt(5)+" "+rs.getDate(6)+" "+rs.getInt(7));
+				System.out.println("[판매 번호 : "+rs.getString(1)+"] [매장 번호 : "+rs.getString(2)+"] [고객 번호 : "+rs.getString(3)+"] [판매품목 번호 : "+rs.getString(4)
+				+"] [수량 : "+rs.getInt(5)+"] [판매 날짜 : "+rs.getDate(6)+"] [금액 : "+rs.getInt(7)+"]");
 			System.out.println("------------------------------------------------------------");
-		}catch(Exception e){ System.out.println(e);}
+		}catch(Exception e){ System.out.println("데이터베이스에 연결하세요");}
 	}
 	public static void ShowSellProduct() {
 		try{
 			Statement stmt=con.createStatement();
 			ResultSet rs=stmt.executeQuery("SELECT * FROM sellproduct");
 			System.out.println("-------------------------물품 목록-----------------------------");
-			while(rs.next())
-				System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getDate(3)+" "+rs.getInt(4));
+			System.out.println("매장 번호           물품 번호           유통 기한                          가격 ");
+			while(rs.next()) {
+				System.out.printf("%5s     ",rs.getString(1));
+				System.out.printf("%4s       ",rs.getString(2));
+				System.out.printf("%5s ",rs.getDate(3));
+				System.out.printf("%11s    ",rs.getInt(4));
+				System.out.println();
+			}
 			System.out.println("------------------------------------------------------------");
-		}catch(Exception e){ System.out.println(e);}
+		}catch(Exception e){ System.out.println("데이터베이스에 연결하세요");}
 	}
 	public static void ShowShop() {
 		try{
@@ -254,9 +374,9 @@ public class Test
 			ResultSet rs=stmt.executeQuery("SELECT * FROM shop");
 			System.out.println("-------------------------매장 목록-----------------------------");
 			while(rs.next())
-				System.out.println(rs.getString(1)+" "+rs.getString(2));
+				System.out.println("[매장 번호 : "+rs.getString(1)+"] [매장 위치 : "+rs.getString(2)+"]");
 			System.out.println("------------------------------------------------------------");
-		}catch(Exception e){ System.out.println(e);}
+		}catch(Exception e){ System.out.println("데이터베이스에 연결하세요");}
 	}
 	public static void ShowKiosk() {
 		try{
@@ -264,8 +384,8 @@ public class Test
 			ResultSet rs=stmt.executeQuery("SELECT * FROM kiosk");
 			System.out.println("-------------------------키오스크 목록-----------------------------");
 			while(rs.next())
-				System.out.println(rs.getString(1)+" "+rs.getString(2));
+				System.out.println("[키오스크 번호 : "+rs.getString(1)+"] [매장 번호 : "+rs.getString(2)+"]");
 			System.out.println("------------------------------------------------------------");
-		}catch(Exception e){ System.out.println(e);}
+		}catch(Exception e){ System.out.println("데이터베이스에 연결하세요");}
 	}
 }
