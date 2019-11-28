@@ -62,19 +62,19 @@ public class Test
 				break;
 			case 9:
 				System.out.println();
-				InsertSellProduct();			//판매품목 추가
+				InsertSellProduct();	//판매품목 추가
 				break;
 			case 10:
 				System.out.println();
-				DeleteSellProduct();			//판매품목 삭제
+				DeleteSellProduct();	//판매품목 삭제
 				break;
 			case 11:
 				System.out.println();
-				InsertEmployee();			//직원 추가
+				InsertEmployee();		//직원 추가
 				break;
 			case 12:
 				System.out.println();
-				DeleteEmployee();			//직원 삭제
+				DeleteEmployee();		//직원 삭제
 				break;
 			case 13:
 				System.out.println();
@@ -89,7 +89,7 @@ public class Test
 	public static void ConnectDB() {
 		try{
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		con=DriverManager.getConnection("jdbc:mysql://192.168.56.101:4567/project?useUnicode=yes&characterEncoding=UTF-8","jcy","1234");
+		con=DriverManager.getConnection("jdbc:mysql://192.168.56.101:4567/project?useUnicode=yes&characterEncoding=UTF-8","jcy","1234"); //JDBC로 mysql jcy계정에 접근
 		}catch(Exception e){ System.out.println(e);} 
 		System.out.println("성공적으로 DB에 연결했습니다.");
 	}
@@ -142,19 +142,19 @@ public class Test
 	
 	public static void InsertCustomer() {
 		try{
-		Statement stmt=con.createStatement();
-		Scanner menu=new Scanner(System.in);
+		Statement stmt=con.createStatement(); //쿼리문을 실행하기 위한 객체
+		Scanner menu=new Scanner(System.in);	//입력을 위한 스캐너
 		System.out.println("고객의 번호는 1xxx입니다.");
 		System.out.print("고객의 번호을 입력하세요 : ");
-		String cusnum=menu.nextLine();
+		String cusnum=menu.nextLine();			//변수에 한 줄 단위로 입력받는다
 		System.out.print("고객의 이름을 입력하세요 : ");
 		String name=menu.nextLine();
 		System.out.print("고객의 주소를 입력하세요 : ");
 		String location=menu.nextLine();
 		System.out.print("고객의 전화번호를 입력하세요 : ");
 		String phonenum=menu.nextLine();
-		String sql=("insert into customer values('"+cusnum+"','"+name+"','"+location+"','"+phonenum+"')");
-		stmt.executeUpdate(sql);
+		String sql=("insert into customer values('"+cusnum+"','"+name+"','"+location+"','"+phonenum+"')"); //String 변수 sql에 쿼리문을 저장
+		stmt.executeUpdate(sql);	//stmt객체를 이용하여 sql 변수 쿼리문 실행
 		System.out.println("성공적으로 저장되었습니다!");
 		}catch(Exception e) {System.out.println(e);}
 		
@@ -302,10 +302,10 @@ public class Test
 			System.out.print("판매 날짜를 입력하세요 : ");
 			String selldate=menu.nextLine();
 			int c=Integer.parseInt(count); //count를 int형으로 변환
-			rs = stmt.executeQuery("SELECT price FROM sellproduct where productnum="+productnum+";");
-			rs.next();
-			int price=rs.getInt(1);
-			int pay=c*price;
+			rs = stmt.executeQuery("SELECT price FROM sellproduct where productnum="+productnum+";");	//rs객체에 쿼리문의 결과를 저장한다
+			rs.next();	//쿼리문의 주소?가 담겨있어서 next()를 통해 값에 접근
+			int price=rs.getInt(1);	//price를 int형으로 변환
+			int pay=c*price;	//수량*가격=금액
 
 			
 			
