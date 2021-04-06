@@ -13,8 +13,8 @@ public class Test
 			System.out.println(" ");
 			System.out.println(" ");
 			System.out.println("------------------------------------------------------------");
-			System.out.println(" Database Term Project // CY¾Æ¿ï·¿ Å°¿À½ºÅ© ½Ã½ºÅÛ ");
-			System.out.println(" 2015041032 ÀåÂù¿ë ");
+			System.out.println(" Database Term Project // CYì•„ìš¸ë › í‚¤ì˜¤ìŠ¤í¬ ì‹œìŠ¤í…œ ");
+			System.out.println(" 2015041032 ì¥ì°¬ìš© ");
 			System.out.println(" Chungbuk National University");
 			System.out.println("------------------------------------------------------------");
 			System.out.println(" 1. connection 2. showDB ");
@@ -30,55 +30,55 @@ public class Test
 			switch(number) {
 			case 1:
 				System.out.println();
-				ConnectDB();			//DB¿¡ ¿¬°áÇÏ´Â ÇÔ¼ö
+				ConnectDB();			//DBì— ì—°ê²°í•˜ëŠ” í•¨ìˆ˜
 				break;
 			case 2:
 				System.out.println();
-				ShowDB();				//DB¸¦ Ãâ·ÂÇÏ´Â ÇÔ¼ö
+				ShowDB();				//DBë¥¼ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
 				break;
 			case 3:
 				System.out.println();
-				InsertCustomer();		//°í°´ Ãß°¡
+				InsertCustomer();		//ê³ ê° ì¶”ê°€
 				break;
 			case 4:
 				System.out.println();
-				DeleteCustomer();		//°í°´ »èÁ¦
+				DeleteCustomer();		//ê³ ê° ì‚­ì œ
 				break;
 			case 5:
 				System.out.println();
-				InsertShop();			//¸ÅÀå Ãß°¡
+				InsertShop();			//ë§¤ì¥ ì¶”ê°€
 				break;
 			case 6:
 				System.out.println();
-				DeleteShop();			//¸ÅÀå »èÁ¦
+				DeleteShop();			//ë§¤ì¥ ì‚­ì œ
 				break;
 			case 7:
 				System.out.println();
-				InsertKiosk();			//Å°¿À½ºÅ© Ãß°¡
+				InsertKiosk();			//í‚¤ì˜¤ìŠ¤í¬ ì¶”ê°€
 				break;
 			case 8:
 				System.out.println();
-				DeleteKiosk();			//Å°¿À½ºÅ© »èÁ¦
+				DeleteKiosk();			//í‚¤ì˜¤ìŠ¤í¬ ì‚­ì œ
 				break;
 			case 9:
 				System.out.println();
-				InsertSellProduct();	//ÆÇ¸ÅÇ°¸ñ Ãß°¡
+				InsertSellProduct();	//íŒë§¤í’ˆëª© ì¶”ê°€
 				break;
 			case 10:
 				System.out.println();
-				DeleteSellProduct();	//ÆÇ¸ÅÇ°¸ñ »èÁ¦
+				DeleteSellProduct();	//íŒë§¤í’ˆëª© ì‚­ì œ
 				break;
 			case 11:
 				System.out.println();
-				InsertEmployee();		//Á÷¿ø Ãß°¡
+				InsertEmployee();		//ì§ì› ì¶”ê°€
 				break;
 			case 12:
 				System.out.println();
-				DeleteEmployee();		//Á÷¿ø »èÁ¦
+				DeleteEmployee();		//ì§ì› ì‚­ì œ
 				break;
 			case 13:
 				System.out.println();
-				Sell();			//ÆÇ¸Å
+				Sell();			//íŒë§¤
 				break;
 			case 99:
 				System.exit(0);
@@ -89,9 +89,9 @@ public class Test
 	public static void ConnectDB() {
 		try{
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		con=DriverManager.getConnection("jdbc:mysql://192.168.56.101:4567/project?useUnicode=yes&characterEncoding=UTF-8","jcy","1234"); //JDBC·Î mysql jcy°èÁ¤¿¡ Á¢±Ù
+		con=DriverManager.getConnection("jdbc:mysql://192.168.56.101:4567/project?useUnicode=yes&characterEncoding=UTF-8","ì•„ì´ë””","ë¹„ë°€ë²ˆí˜¸"); //JDBCë¡œ mysql ê³„ì •ì— ì ‘ê·¼
 		}catch(Exception e){ System.out.println(e);} 
-		System.out.println("¼º°øÀûÀ¸·Î DB¿¡ ¿¬°áÇß½À´Ï´Ù.");
+		System.out.println("ì„±ê³µì ìœ¼ë¡œ DBì— ì—°ê²°í–ˆìŠµë‹ˆë‹¤.");
 	}
 	
 	public static void ShowDB() {
@@ -107,32 +107,32 @@ public class Test
 			System.out.println(" 5. shop 6. kiosk");
 			System.out.println(" 99. quit");
 			System.out.println("------------------------------------------------------------");
-			System.out.print("È®ÀÎ ÇÏ·Á´Â ¸ñ·Ï ÀÔ·Â : ");
+			System.out.print("í™•ì¸ í•˜ë ¤ëŠ” ëª©ë¡ ì…ë ¥ : ");
 			int number = menu.nextInt();
 			switch(number) {
 			case 1:
 				System.out.println();
-				ShowCustomer();		//°í°´ ¸í´Ü Ãâ·Â
+				ShowCustomer();		//ê³ ê° ëª…ë‹¨ ì¶œë ¥
 				break;
 			case 2:
 				System.out.println();
-				ShowEmployee();		//Á÷¿ø ¸í´Ü Ãâ·Â
+				ShowEmployee();		//ì§ì› ëª…ë‹¨ ì¶œë ¥
 				break;
 			case 3:
 				System.out.println();
-				ShowSell();			//ÆÇ¸Å ¸ñ·Ï Ãâ·Â
+				ShowSell();			//íŒë§¤ ëª©ë¡ ì¶œë ¥
 				break;
 			case 4:
 				System.out.println();
-				ShowSellProduct();	//ÆÇ¸Å Ç°¸ñ Ãâ·Â
+				ShowSellProduct();	//íŒë§¤ í’ˆëª© ì¶œë ¥
 				break;
 			case 5:
 				System.out.println();
-				ShowShop();			//¸ÅÀå ¸ñ·Ï Ãâ·Â
+				ShowShop();			//ë§¤ì¥ ëª©ë¡ ì¶œë ¥
 				break;	
 			case 6:
 				System.out.println();
-				ShowKiosk();		//Å°¿À½ºÅ© ¸ñ·Ï Ãâ·Â
+				ShowKiosk();		//í‚¤ì˜¤ìŠ¤í¬ ëª©ë¡ ì¶œë ¥
 				break;
 			case 99:
 				return;
@@ -142,185 +142,185 @@ public class Test
 	
 	public static void InsertCustomer() {
 		try{
-		Statement stmt=con.createStatement(); //Äõ¸®¹®À» ½ÇÇàÇÏ±â À§ÇÑ °´Ã¼
-		Scanner menu=new Scanner(System.in);	//ÀÔ·ÂÀ» À§ÇÑ ½ºÄ³³Ê
-		System.out.println("°í°´ÀÇ ¹øÈ£´Â 1xxxÀÔ´Ï´Ù.");
-		System.out.print("°í°´ÀÇ ¹øÈ£À» ÀÔ·ÂÇÏ¼¼¿ä : ");
-		String cusnum=menu.nextLine();			//º¯¼ö¿¡ ÇÑ ÁÙ ´ÜÀ§·Î ÀÔ·Â¹Ş´Â´Ù
-		System.out.print("°í°´ÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä : ");
+		Statement stmt=con.createStatement(); //ì¿¼ë¦¬ë¬¸ì„ ì‹¤í–‰í•˜ê¸° ìœ„í•œ ê°ì²´
+		Scanner menu=new Scanner(System.in);	//ì…ë ¥ì„ ìœ„í•œ ìŠ¤ìºë„ˆ
+		System.out.println("ê³ ê°ì˜ ë²ˆí˜¸ëŠ” 1xxxì…ë‹ˆë‹¤.");
+		System.out.print("ê³ ê°ì˜ ë²ˆí˜¸ì„ ì…ë ¥í•˜ì„¸ìš” : ");
+		String cusnum=menu.nextLine();			//ë³€ìˆ˜ì— í•œ ì¤„ ë‹¨ìœ„ë¡œ ì…ë ¥ë°›ëŠ”ë‹¤
+		System.out.print("ê³ ê°ì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 		String name=menu.nextLine();
-		System.out.print("°í°´ÀÇ ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ê³ ê°ì˜ ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 		String location=menu.nextLine();
-		System.out.print("°í°´ÀÇ ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ê³ ê°ì˜ ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 		String phonenum=menu.nextLine();
-		String sql=("insert into customer values('"+cusnum+"','"+name+"','"+location+"','"+phonenum+"')"); //String º¯¼ö sql¿¡ Äõ¸®¹®À» ÀúÀå
-		stmt.executeUpdate(sql);	//stmt°´Ã¼¸¦ ÀÌ¿ëÇÏ¿© sql º¯¼ö Äõ¸®¹® ½ÇÇà
-		System.out.println("¼º°øÀûÀ¸·Î ÀúÀåµÇ¾ú½À´Ï´Ù!");
+		String sql=("insert into customer values('"+cusnum+"','"+name+"','"+location+"','"+phonenum+"')"); //String ë³€ìˆ˜ sqlì— ì¿¼ë¦¬ë¬¸ì„ ì €ì¥
+		stmt.executeUpdate(sql);	//stmtê°ì²´ë¥¼ ì´ìš©í•˜ì—¬ sql ë³€ìˆ˜ ì¿¼ë¦¬ë¬¸ ì‹¤í–‰
+		System.out.println("ì„±ê³µì ìœ¼ë¡œ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤!");
 		}catch(Exception e) {System.out.println(e);}
 		
 	}
 	public static void DeleteCustomer() {
 		try {
 			Scanner menu = new Scanner(System.in);
-			System.out.print("»èÁ¦ÇÒ °í°´ÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+			System.out.print("ì‚­ì œí•  ê³ ê°ì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 			String cusnum = menu.nextLine();
 			Statement stmt = con.createStatement();
 			String sql=("delete from customer where cusnum="+cusnum+";");
 			stmt.executeUpdate(sql);
-			System.out.println("¼º°øÀûÀ¸·Î »èÁ¦µÇ¾ú½À´Ï´Ù!");
+			System.out.println("ì„±ê³µì ìœ¼ë¡œ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤!");
 		}catch(Exception e) {System.out.println(e);}
 	}
 	public static void InsertShop() {
 		try{
 		Statement stmt=con.createStatement();
 		Scanner menu=new Scanner(System.in);
-		System.out.println("¸ÅÀåÀÇ ¹øÈ£´Â 2xxxÀÔ´Ï´Ù.");
-		System.out.print("¸ÅÀå ¹øÈ£À» ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.println("ë§¤ì¥ì˜ ë²ˆí˜¸ëŠ” 2xxxì…ë‹ˆë‹¤.");
+		System.out.print("ë§¤ì¥ ë²ˆí˜¸ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 		String shopnum=menu.nextLine();
-		System.out.print("¸ÅÀå ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ë§¤ì¥ ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 		String location=menu.nextLine();
 		
 		String sql=("insert into shop values('"+shopnum+"','"+location+"')");
 		stmt.executeUpdate(sql);
-		System.out.println("¼º°øÀûÀ¸·Î ÀúÀåµÇ¾ú½À´Ï´Ù!");
+		System.out.println("ì„±ê³µì ìœ¼ë¡œ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤!");
 		}catch(Exception e) {System.out.println(e);}
 	}
 	public static void DeleteShop() {
 		try {
 			Scanner menu = new Scanner(System.in);
-			System.out.print("»èÁ¦ÇÒ ¸ÅÀåÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+			System.out.print("ì‚­ì œí•  ë§¤ì¥ì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 			String shopnum = menu.nextLine();
 			Statement stmt = con.createStatement();
 			String sql=("delete from shop where shopnum="+shopnum+";");
 			stmt.executeUpdate(sql);
-			System.out.println("¼º°øÀûÀ¸·Î »èÁ¦µÇ¾ú½À´Ï´Ù!");
+			System.out.println("ì„±ê³µì ìœ¼ë¡œ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤!");
 		}catch(Exception e) {System.out.println(e);}
 	}
 	public static void InsertKiosk() {
 		try{
 		Statement stmt=con.createStatement();
 		Scanner menu=new Scanner(System.in);
-		System.out.println("Å°¿À½ºÅ©ÀÇ ¹øÈ£´Â 3xxxÀÔ´Ï´Ù.");
-		System.out.print("Å°¿À½ºÅ© ¹øÈ£À» ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.println("í‚¤ì˜¤ìŠ¤í¬ì˜ ë²ˆí˜¸ëŠ” 3xxxì…ë‹ˆë‹¤.");
+		System.out.print("í‚¤ì˜¤ìŠ¤í¬ ë²ˆí˜¸ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 		String kiosknum=menu.nextLine();
-		System.out.print("¸ÅÀå ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ë§¤ì¥ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 		String shopnum=menu.nextLine();
 		
 		String sql=("insert into kiosk values('"+kiosknum+"','"+shopnum+"')");
 		stmt.executeUpdate(sql);
-		System.out.println("¼º°øÀûÀ¸·Î ÀúÀåµÇ¾ú½À´Ï´Ù!");
-		}catch(Exception e) {System.out.println("ÁÖ Å×ÀÌºí¿¡ ¸ÅÀå ¹øÈ£°¡ ¾ø½À´Ï´Ù.");}
+		System.out.println("ì„±ê³µì ìœ¼ë¡œ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤!");
+		}catch(Exception e) {System.out.println("ì£¼ í…Œì´ë¸”ì— ë§¤ì¥ ë²ˆí˜¸ê°€ ì—†ìŠµë‹ˆë‹¤.");}
 	}
 	public static void DeleteKiosk() {
 		try {
 			Scanner menu = new Scanner(System.in);
-			System.out.print("»èÁ¦ÇÒ Å°¿À½ºÅ©ÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+			System.out.print("ì‚­ì œí•  í‚¤ì˜¤ìŠ¤í¬ì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 			String kiosknum = menu.nextLine();
 			Statement stmt = con.createStatement();
 			String sql=("delete from kiosk where kiosknum="+kiosknum+";");
 			stmt.executeUpdate(sql);
-			System.out.println("¼º°øÀûÀ¸·Î »èÁ¦µÇ¾ú½À´Ï´Ù!");
+			System.out.println("ì„±ê³µì ìœ¼ë¡œ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤!");
 		}catch(Exception e) {System.out.println(e);}
 	}
 	public static void InsertEmployee() {
 		try{
 		Statement stmt=con.createStatement();
 		Scanner menu=new Scanner(System.in);
-		System.out.println("Á÷¿øÀÇ ¹øÈ£´Â 6xxxÀÔ´Ï´Ù.");
-		System.out.print("Á÷¿ø ¹øÈ£À» ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.println("ì§ì›ì˜ ë²ˆí˜¸ëŠ” 6xxxì…ë‹ˆë‹¤.");
+		System.out.print("ì§ì› ë²ˆí˜¸ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 		String empno=menu.nextLine();
-		System.out.print("Á÷¿ø °è±ŞÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ì§ì› ê³„ê¸‰ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 		String position=menu.nextLine();
-		System.out.print("Á÷¿ø ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ì§ì› ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 		String name=menu.nextLine();
-		System.out.print("Á÷¿ø ÁÖ¼ÒÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ì§ì› ì£¼ì†Œì„ ì…ë ¥í•˜ì„¸ìš” : ");
 		String location=menu.nextLine();
-		System.out.print("Á÷¿ø ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ì§ì› ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 		String phonenum=menu.nextLine();
 		
 		String sql=("insert into employee values('"+empno+"','"+position+"','"+name+"','"+location+"','"+phonenum+"')");
 		stmt.executeUpdate(sql);
-		System.out.println("¼º°øÀûÀ¸·Î ÀúÀåµÇ¾ú½À´Ï´Ù!");
+		System.out.println("ì„±ê³µì ìœ¼ë¡œ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤!");
 		}catch(Exception e) {System.out.println(e);}
 	}
 	public static void DeleteEmployee() {
 		try {
 			Scanner menu = new Scanner(System.in);
-			System.out.print("»èÁ¦ÇÒ ¸ÅÀåÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+			System.out.print("ì‚­ì œí•  ë§¤ì¥ì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 			String shopnum = menu.nextLine();
 			Statement stmt = con.createStatement();
 			String sql=("delete from shop where shopnum="+shopnum+";");
 			stmt.executeUpdate(sql);
-			System.out.println("¼º°øÀûÀ¸·Î »èÁ¦µÇ¾ú½À´Ï´Ù!");
+			System.out.println("ì„±ê³µì ìœ¼ë¡œ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤!");
 		}catch(Exception e) {System.out.println(e);}
 	}
 	public static void InsertSellProduct() {
 		try{
 		Statement stmt=con.createStatement();
 		Scanner menu=new Scanner(System.in);
-		System.out.println("ÆÇ¸Å ¹°Ç°ÀÇ ¹øÈ£´Â 4xxxÀÔ´Ï´Ù.");
-		System.out.print("¸ÅÀå ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.println("íŒë§¤ ë¬¼í’ˆì˜ ë²ˆí˜¸ëŠ” 4xxxì…ë‹ˆë‹¤.");
+		System.out.print("ë§¤ì¥ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 		String shopnum=menu.nextLine();
-		System.out.print("ÆÇ¸Å ¹°Ç° ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("íŒë§¤ ë¬¼í’ˆ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 		String productnum=menu.nextLine();
-		System.out.print("À¯Åë±âÇÑ ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ìœ í†µê¸°í•œ ì…ë ¥í•˜ì„¸ìš” : ");
 		String life=menu.nextLine();
-		System.out.print("°¡°İÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ê°€ê²©ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 		String price=menu.nextLine();
 		
 		String sql=("insert into sellproduct values('"+shopnum+"','"+productnum+"','"+life+"','"+price+"')");
 		stmt.executeUpdate(sql);
-		System.out.println("¼º°øÀûÀ¸·Î ÀúÀåµÇ¾ú½À´Ï´Ù!");
-		}catch(Exception e) {System.out.println("ÁÖ Å×ÀÌºí¿¡ ÇàÀÌ ¾ø½À´Ï´Ù.");}
+		System.out.println("ì„±ê³µì ìœ¼ë¡œ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤!");
+		}catch(Exception e) {System.out.println("ì£¼ í…Œì´ë¸”ì— í–‰ì´ ì—†ìŠµë‹ˆë‹¤.");}
 	}
 	public static void DeleteSellProduct() {
 		try {
 			Scanner menu = new Scanner(System.in);
-			System.out.print("»èÁ¦ÇÒ ÆÇ¸Å ¹°Ç°ÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+			System.out.print("ì‚­ì œí•  íŒë§¤ ë¬¼í’ˆì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 			String productnum = menu.nextLine();
 			Statement stmt = con.createStatement();
 			String sql=("delete from sellproduct where productnum="+productnum+";");
 			stmt.executeUpdate(sql);
-			System.out.println("¼º°øÀûÀ¸·Î »èÁ¦µÇ¾ú½À´Ï´Ù!");
+			System.out.println("ì„±ê³µì ìœ¼ë¡œ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤!");
 		}catch(Exception e) {System.out.println(e);}
 	}
 	public static void Sell() {
 		try{
 			Statement stmt=con.createStatement();
 			Scanner menu=new Scanner(System.in);
-			System.out.println("ÆÇ¸Å ¹øÈ£´Â 5xxxÀÔ´Ï´Ù.");
-			System.out.print("ÆÇ¸Å ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+			System.out.println("íŒë§¤ ë²ˆí˜¸ëŠ” 5xxxì…ë‹ˆë‹¤.");
+			System.out.print("íŒë§¤ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 			String sellnum=menu.nextLine();
-			System.out.print("¸ÅÀå ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+			System.out.print("ë§¤ì¥ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 			String shopnum=menu.nextLine();
-			System.out.print("°í°´ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+			System.out.print("ê³ ê° ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 			String cusnum=menu.nextLine();
-			System.out.print("ÆÇ¸Å ¹°Ç° ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+			System.out.print("íŒë§¤ ë¬¼í’ˆ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 			String productnum=menu.nextLine();
-			System.out.print("¼ö·®À» ÀÔ·ÂÇÏ¼¼¿ä : ");
+			System.out.print("ìˆ˜ëŸ‰ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 			String count=menu.nextLine();
-			System.out.print("ÆÇ¸Å ³¯Â¥¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+			System.out.print("íŒë§¤ ë‚ ì§œë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 			String selldate=menu.nextLine();
-			int c=Integer.parseInt(count); //count¸¦ intÇüÀ¸·Î º¯È¯
-			rs = stmt.executeQuery("SELECT price FROM sellproduct where productnum="+productnum+";");	//rs°´Ã¼¿¡ Äõ¸®¹®ÀÇ °á°ú¸¦ ÀúÀåÇÑ´Ù
-			rs.next();	//Äõ¸®¹®ÀÇ ÁÖ¼Ò?°¡ ´ã°ÜÀÖ¾î¼­ next()¸¦ ÅëÇØ °ª¿¡ Á¢±Ù
-			int price=rs.getInt(1);	//price¸¦ intÇüÀ¸·Î º¯È¯
-			int pay=c*price;	//¼ö·®*°¡°İ=±İ¾×
+			int c=Integer.parseInt(count); //countë¥¼ intí˜•ìœ¼ë¡œ ë³€í™˜
+			rs = stmt.executeQuery("SELECT price FROM sellproduct where productnum="+productnum+";");	//rsê°ì²´ì— ì¿¼ë¦¬ë¬¸ì˜ ê²°ê³¼ë¥¼ ì €ì¥í•œë‹¤
+			rs.next();	//ì¿¼ë¦¬ë¬¸ì˜ ì£¼ì†Œ?ê°€ ë‹´ê²¨ìˆì–´ì„œ next()ë¥¼ í†µí•´ ê°’ì— ì ‘ê·¼
+			int price=rs.getInt(1);	//priceë¥¼ intí˜•ìœ¼ë¡œ ë³€í™˜
+			int pay=c*price;	//ìˆ˜ëŸ‰*ê°€ê²©=ê¸ˆì•¡
 
 			
 			
 			
 			String sql=("insert into sell values('"+sellnum+"','"+shopnum+"','"+cusnum+"','"+productnum+"','"+count+"','"+selldate+"','"+pay+"')");
 			stmt.executeUpdate(sql);
-			System.out.println("¼º°øÀûÀ¸·Î ÀúÀåµÇ¾ú½À´Ï´Ù!");
-			}catch(Exception e) {System.out.println("ÁÖ Å×ÀÌºí¿¡ ÇàÀÌ ¾ø½À´Ï´Ù.");}
+			System.out.println("ì„±ê³µì ìœ¼ë¡œ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤!");
+			}catch(Exception e) {System.out.println("ì£¼ í…Œì´ë¸”ì— í–‰ì´ ì—†ìŠµë‹ˆë‹¤.");}
 	}
 	public static void ShowCustomer() {
 		try{
 			Statement stmt=con.createStatement();
 			ResultSet rs=stmt.executeQuery("SELECT * FROM customer");
-			System.out.println("-------------------------°í°´ ¸í´Ü-----------------------------");
-			System.out.println("°í°´ ¹øÈ£           °í°´ ÀÌ¸§           °í°´ ÁÖ¼Ò        °í°´ ÀüÈ­¹øÈ£ ");
+			System.out.println("-------------------------ê³ ê° ëª…ë‹¨-----------------------------");
+			System.out.println("ê³ ê° ë²ˆí˜¸           ê³ ê° ì´ë¦„           ê³ ê° ì£¼ì†Œ        ê³ ê° ì „í™”ë²ˆí˜¸ ");
 			while(rs.next()) {
 				System.out.printf("%5s     ",rs.getString(1));
 				System.out.printf("%4s       ",rs.getString(2));
@@ -329,35 +329,35 @@ public class Test
 				System.out.println();
 			}
 			System.out.println("------------------------------------------------------------");
-		}catch(Exception e){ System.out.println("µ¥ÀÌÅÍº£ÀÌ½º¿¡ ¿¬°áÇÏ¼¼¿ä");}
+		}catch(Exception e){ System.out.println("ë°ì´í„°ë² ì´ìŠ¤ì— ì—°ê²°í•˜ì„¸ìš”");}
 	}
 	public static void ShowEmployee() {
 		try{
 			Statement stmt=con.createStatement();
 			ResultSet rs=stmt.executeQuery("SELECT * FROM employee");
-			System.out.println("-------------------------Á÷¿ø ¸í´Ü-----------------------------");
+			System.out.println("-------------------------ì§ì› ëª…ë‹¨-----------------------------");
 			while(rs.next())
-				System.out.println("[Á÷¿ø ¹øÈ£ : "+rs.getString(1)+"] [Á÷¿ø °è±Ş : "+rs.getString(2)+"] [Á÷¿ø ÀÌ¸§ : "+rs.getString(3)+"] [Á÷¿ø ÁÖ¼Ò : "+rs.getString(4)+"] [Á÷¿ø ÀüÈ­¹øÈ£ : "+rs.getString(5)+"]");
+				System.out.println("[ì§ì› ë²ˆí˜¸ : "+rs.getString(1)+"] [ì§ì› ê³„ê¸‰ : "+rs.getString(2)+"] [ì§ì› ì´ë¦„ : "+rs.getString(3)+"] [ì§ì› ì£¼ì†Œ : "+rs.getString(4)+"] [ì§ì› ì „í™”ë²ˆí˜¸ : "+rs.getString(5)+"]");
 			System.out.println("------------------------------------------------------------");
-		}catch(Exception e){ System.out.println("µ¥ÀÌÅÍº£ÀÌ½º¿¡ ¿¬°áÇÏ¼¼¿ä");}
+		}catch(Exception e){ System.out.println("ë°ì´í„°ë² ì´ìŠ¤ì— ì—°ê²°í•˜ì„¸ìš”");}
 	}
 	public static void ShowSell() {
 		try{
 			Statement stmt=con.createStatement();
 			ResultSet rs=stmt.executeQuery("SELECT * FROM sell");
-			System.out.println("-------------------------ÆÇ¸Å ¸í´Ü-----------------------------");
+			System.out.println("-------------------------íŒë§¤ ëª…ë‹¨-----------------------------");
 			while(rs.next())
-				System.out.println("[ÆÇ¸Å ¹øÈ£ : "+rs.getString(1)+"] [¸ÅÀå ¹øÈ£ : "+rs.getString(2)+"] [°í°´ ¹øÈ£ : "+rs.getString(3)+"] [ÆÇ¸ÅÇ°¸ñ ¹øÈ£ : "+rs.getString(4)
-				+"] [¼ö·® : "+rs.getInt(5)+"] [ÆÇ¸Å ³¯Â¥ : "+rs.getDate(6)+"] [±İ¾× : "+rs.getInt(7)+"]");
+				System.out.println("[íŒë§¤ ë²ˆí˜¸ : "+rs.getString(1)+"] [ë§¤ì¥ ë²ˆí˜¸ : "+rs.getString(2)+"] [ê³ ê° ë²ˆí˜¸ : "+rs.getString(3)+"] [íŒë§¤í’ˆëª© ë²ˆí˜¸ : "+rs.getString(4)
+				+"] [ìˆ˜ëŸ‰ : "+rs.getInt(5)+"] [íŒë§¤ ë‚ ì§œ : "+rs.getDate(6)+"] [ê¸ˆì•¡ : "+rs.getInt(7)+"]");
 			System.out.println("------------------------------------------------------------");
-		}catch(Exception e){ System.out.println("µ¥ÀÌÅÍº£ÀÌ½º¿¡ ¿¬°áÇÏ¼¼¿ä");}
+		}catch(Exception e){ System.out.println("ë°ì´í„°ë² ì´ìŠ¤ì— ì—°ê²°í•˜ì„¸ìš”");}
 	}
 	public static void ShowSellProduct() {
 		try{
 			Statement stmt=con.createStatement();
 			ResultSet rs=stmt.executeQuery("SELECT * FROM sellproduct");
-			System.out.println("-------------------------¹°Ç° ¸ñ·Ï-----------------------------");
-			System.out.println("¸ÅÀå ¹øÈ£           ¹°Ç° ¹øÈ£           À¯Åë ±âÇÑ                          °¡°İ ");
+			System.out.println("-------------------------ë¬¼í’ˆ ëª©ë¡-----------------------------");
+			System.out.println("ë§¤ì¥ ë²ˆí˜¸           ë¬¼í’ˆ ë²ˆí˜¸           ìœ í†µ ê¸°í•œ                          ê°€ê²© ");
 			while(rs.next()) {
 				System.out.printf("%5s     ",rs.getString(1));
 				System.out.printf("%4s       ",rs.getString(2));
@@ -366,26 +366,26 @@ public class Test
 				System.out.println();
 			}
 			System.out.println("------------------------------------------------------------");
-		}catch(Exception e){ System.out.println("µ¥ÀÌÅÍº£ÀÌ½º¿¡ ¿¬°áÇÏ¼¼¿ä");}
+		}catch(Exception e){ System.out.println("ë°ì´í„°ë² ì´ìŠ¤ì— ì—°ê²°í•˜ì„¸ìš”");}
 	}
 	public static void ShowShop() {
 		try{
 			Statement stmt=con.createStatement();
 			ResultSet rs=stmt.executeQuery("SELECT * FROM shop");
-			System.out.println("-------------------------¸ÅÀå ¸ñ·Ï-----------------------------");
+			System.out.println("-------------------------ë§¤ì¥ ëª©ë¡-----------------------------");
 			while(rs.next())
-				System.out.println("[¸ÅÀå ¹øÈ£ : "+rs.getString(1)+"] [¸ÅÀå À§Ä¡ : "+rs.getString(2)+"]");
+				System.out.println("[ë§¤ì¥ ë²ˆí˜¸ : "+rs.getString(1)+"] [ë§¤ì¥ ìœ„ì¹˜ : "+rs.getString(2)+"]");
 			System.out.println("------------------------------------------------------------");
-		}catch(Exception e){ System.out.println("µ¥ÀÌÅÍº£ÀÌ½º¿¡ ¿¬°áÇÏ¼¼¿ä");}
+		}catch(Exception e){ System.out.println("ë°ì´í„°ë² ì´ìŠ¤ì— ì—°ê²°í•˜ì„¸ìš”");}
 	}
 	public static void ShowKiosk() {
 		try{
 			Statement stmt=con.createStatement();
 			ResultSet rs=stmt.executeQuery("SELECT * FROM kiosk");
-			System.out.println("-------------------------Å°¿À½ºÅ© ¸ñ·Ï-----------------------------");
+			System.out.println("-------------------------í‚¤ì˜¤ìŠ¤í¬ ëª©ë¡-----------------------------");
 			while(rs.next())
-				System.out.println("[Å°¿À½ºÅ© ¹øÈ£ : "+rs.getString(1)+"] [¸ÅÀå ¹øÈ£ : "+rs.getString(2)+"]");
+				System.out.println("[í‚¤ì˜¤ìŠ¤í¬ ë²ˆí˜¸ : "+rs.getString(1)+"] [ë§¤ì¥ ë²ˆí˜¸ : "+rs.getString(2)+"]");
 			System.out.println("------------------------------------------------------------");
-		}catch(Exception e){ System.out.println("µ¥ÀÌÅÍº£ÀÌ½º¿¡ ¿¬°áÇÏ¼¼¿ä");}
+		}catch(Exception e){ System.out.println("ë°ì´í„°ë² ì´ìŠ¤ì— ì—°ê²°í•˜ì„¸ìš”");}
 	}
 }
